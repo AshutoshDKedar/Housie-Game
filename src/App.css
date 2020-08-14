@@ -1,0 +1,83 @@
+/*housie Styles Start*/
+
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+.mb-35 {
+  margin-bottom: 35px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.cmp-housie .random-number {
+  font-size: 50px;
+}
+
+.cmp-housie .game-over {
+  position: absolute;
+  top: -100%;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFF;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+}
+
+.cmp-housie .game-over>.go-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+.cmp-housie .housie-heading {
+  font-size: 70px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.cmp-housie td {
+  padding: 10px !important;
+  width: 10%;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+}
+
+.cmp-housie td>span {
+  visibility: hidden;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /*height: 0%;
+  width: 0%;*/
+  background-color: gray;
+  color: #FFFFFF;
+  border-radius: 10px;
+  transition: all 1s ease-in-out;
+}
+
+.cmp-housie td>span.active {
+  visibility: visible;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  transform: rotateY(360deg);
+  transform-origin: 50%;
+}
+
+.cmp-housie input {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 25px;
+}
+
+/*housie Styles End*/
