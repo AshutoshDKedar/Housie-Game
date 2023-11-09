@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 
 import HousieApp from './components/Housie/app';
+import MatkaApp from './components/Matka/app';
 
 function App() {
   return (
     <div className="container-fluid">
-		<HousieApp />
+		{/*<HousieApp />*/}
+      <MatkaApp />
     </div>
   );
 }
