@@ -24,7 +24,7 @@
 }
 
 .cmp-matka .number-container .number-header > button {
-    margin: 1.5% 0px 0px;
+    margin: 1.25% 0px 0px;
 }
 
 .cmp-matka .number-details-container .number-details-wrapper {
@@ -50,6 +50,16 @@
     border-radius: unset;
     background-color: #000000;
     color: #ffffff;
+}
+
+.cmp-matka .bet-amount-details > .bet-amount-container {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.cmp-matka .bet-amount-details > .bet-amount-container thead {
+    position: sticky;
+    top: 0px;
 }
 
 .cmp-matka .number-container table td {

@@ -18,7 +18,7 @@ class MatkaApp extends Component {
             let randomNumber = Math.floor(Math.random() * 899) + 100;
             for(let j = 0; j <= this.state.numbersList.length; j++) {
                 if (this.state.numbersList[j] !== randomNumber) {
-                    let objToPush = {[`${randomNumber}`]: []};
+                    let objToPush = {[`${randomNumber}`]: [], total: 0};
                     this.setState(prevState => ({
                         numbersList: [...prevState.numbersList, objToPush]
                     }));
@@ -29,9 +29,9 @@ class MatkaApp extends Component {
         }
     }
 
-    componentDidMount = () => {
+    /*componentDidMount = () => {
         console.log("Numbers List Object :", this.state.numbersList);
-    }
+    }*/
 
     generateNumbers = () => {
         this.randomNumbers();
@@ -230,6 +230,7 @@ class MatkaApp extends Component {
                 var index = index;
                 var numbersList = [...this.state.numbersList];
                 numbersList[index][Object.keys(number)[0]].push(betAmount);
+                numbersList[index][Object.keys(number)[1]] = parseInt(numbersList[index][Object.keys(number)[1]]) + parseInt(betAmount);
                 this.setState({numbersList});
                 localStorage.setItem('numbersList', JSON.stringify(numbersList));
             }
@@ -259,9 +260,9 @@ class MatkaApp extends Component {
                             </div>
                             <hr/>
                             <div className='bet-amount-details'>
-                                <div className='table-responsive'>
+                                <div className='bet-amount-container table-responsive'>
                                     <table className='table table-hover'>
-                                        <thead>
+                                        <thead className='bg-dark text-light'>
                                             <tr>
                                                 <th>Sr.No.</th>
                                                 <th>Amount</th>
@@ -278,7 +279,7 @@ class MatkaApp extends Component {
                                                                 return (
                                                                     <tr key={index+1}>
                                                                         <td>{index+1}</td>
-                                                                        <td>{number}</td>
+                                                                        <td className='text-right'>{number}</td>
                                                                     </tr>
                                                                 )
                                                             })
@@ -289,6 +290,26 @@ class MatkaApp extends Component {
                                         </tbody>
                                     </table>
                                 </div>
+                                {
+                                    this.state.numbersList.map((numbers, index) => {
+                                        if (Object.keys(numbers)[0] === this.state.selectedNumber) {
+                                            var index = index;
+                                            var numbersList = [...this.state.numbersList];
+                                            if(numbersList[index][Object.keys(numbers)[0]].length > 0) {
+                                                return (
+                                                    <table className='table'>
+                                                        <tbody className='bg-dark text-light'>
+                                                            <tr>
+                                                                <td className='text-right'><strong>Total : </strong></td>
+                                                                <td className='text-right'><strong>{numbersList[index][Object.keys(numbers)[1]]}</strong></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                )
+                                            }
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
@@ -304,7 +325,7 @@ class MatkaApp extends Component {
                             <div div className = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div className='number-header'>
                                     <h1 className='display-4 float-left'>Numbering Open/Close App :</h1>
-                                    <button className='btn btn-danger float-right' onClick={this.exitFromApplication}>Exit</button>
+                                    <button className='btn btn-danger float-right' onClick={this.exitFromApplication}>EXIT</button>
                                     <div className='clear'></div>
                                 </div>
                                 <hr/>
