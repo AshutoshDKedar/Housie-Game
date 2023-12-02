@@ -9,8 +9,19 @@
     align-items: center;
     justify-content: left;
     background: url(../assets/images/matka-bg.jpg) no-repeat 100% center;
-    background-size: contain;
-    padding-left: 25%;
+    background-size: 50% 100%;
+}
+
+.cmp-matka .number-generator-container .generate-numbers {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 5px 25px;
 }
 
 .cmp-matka .number-details-container {
@@ -80,4 +91,19 @@
 
 .cmp-matka .number-container table td:hover span {
     transform: scale(1.5) rotateX(180deg);
+}
+
+.cmp-matka .patties-data-container .cell-design {
+    width: max-content;
+    margin-bottom: 10px;
+    background: #e9ecef;
+    color: black;
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.cmp-matka .patties-data-container .patties-data-container-title {
+    text-decoration: underline;
 }
